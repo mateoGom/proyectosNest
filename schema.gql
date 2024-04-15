@@ -17,3 +17,16 @@ type MuseumModel {
 type Query {
   allMuseum: [MuseumModel!]!
 }
+
+type Mutation {
+  addMuseum(newMuseumData: MuseumDto!): MuseumModel!
+}
+
+input MuseumDto {
+  id: ID!
+  name: String!
+  description: String!
+  address: String!
+  city: String!
+  image: String!
+}

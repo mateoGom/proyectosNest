@@ -25,6 +25,14 @@ export class MuseumResolver {
     pubSub.publish('museumAdded', { museumAdded: museum });
     return museum;
   }
+
+  @Mutation(returns => MuseumModel)
+  async updateMuseum(@Args('input') input: MuseumDto) {
+    const museum = await this.museumService.update(input.id, input);
+    return museum
+  }
+
+
 }
 
 

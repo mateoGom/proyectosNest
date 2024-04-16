@@ -20,5 +20,13 @@ export class MuseumService {
       return await this.museumRepository.save(museum);
     }
 
+    async update(id: string, museumDto: MuseumDto): Promise<MuseumEntity | undefined> {
+      const museumToUpdate = await this.museumRepository.findOneBy({id});
+      if (!museumToUpdate) {
+          return undefined; // Museum with the given id not found
+      }
+      const updatedMuseum = { ...museumToUpdate, ...museumDto };
+      return await this.museumRepository.save(updatedMuseum);
+  }
 
 }

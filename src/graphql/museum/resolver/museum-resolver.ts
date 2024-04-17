@@ -32,6 +32,12 @@ export class MuseumResolver {
     return museum
   }
 
+  @Mutation(returns => MuseumModel)
+  async deleteMuseum(@Args('id') id: string) {
+    const museum = await this.museumService.delete(id);
+    return museum
+  }
+
 
 }
 

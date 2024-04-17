@@ -21,6 +21,7 @@ type Query {
 type Mutation {
   addMuseum(newMuseumData: MuseumDto!): MuseumModel!
   updateMuseum(input: MuseumDto!): MuseumModel!
+  deleteMuseum(id: String!): MuseumModel!
 }
 
 input MuseumDto {

@@ -23,10 +23,19 @@ export class MuseumService {
     async update(id: string, museumDto: MuseumDto): Promise<MuseumEntity | undefined> {
       const museumToUpdate = await this.museumRepository.findOneBy({id});
       if (!museumToUpdate) {
-          return undefined; // Museum with the given id not found
+          return undefined;
       }
       const updatedMuseum = { ...museumToUpdate, ...museumDto };
       return await this.museumRepository.save(updatedMuseum);
   }
+
+  async delete(id: string): Promise<MuseumEntity | undefined> {
+    const museumToDelete = await this.museumRepository.findOneBy({ id });
+    if (!museumToDelete) {
+        return undefined;
+    }
+    await this.museumRepository.delete(id);
+    return museumToDelete;
+}
 
 }

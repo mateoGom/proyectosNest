@@ -1,0 +1,81 @@
+////////////          Mutations                //////////////////////////
+
+add new Museum
+
+
+mutation addMuseum{
+  addMuseum(newMuseumData:{
+    id: "fd3b9f3e-3d2e-4f66-9093-d462f2748423",
+description: "descripcion",
+name: "Botero"
+address: "Parque botero"
+city: "Medellin"
+image: "URL"
+  }){
+    id
+    description
+    name
+    address
+    city
+    image
+  }
+}
+
+
+
+update museum
+
+mutation updateMuseum{
+  updateMuseum(input:{
+    id: "fd3b9f3e-3d2e-4f66-9093-d462f2748423",
+description: "Museo de arte",
+name: "Ciencia"
+address: "USA"
+city: "NY"
+image: "URL USA"
+  }){
+    id
+    description
+    name
+    address
+    city
+    image
+  }
+}
+
+
+
+delete museum
+
+
+mutation deleteMuseum{
+  deleteMuseum(id:"fd3b9f3e-3d2e-4f66-9093-d462f2748423"){
+    id
+  }
+}
+
+
+/////////////////// Query //////////////////////
+
+{
+  allMuseum{
+    id
+    name
+    description
+
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
